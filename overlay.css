@@ -1,0 +1,90 @@
+
+/* White theme everywhere: black text, white backgrounds */
+:root {
+  --jea-bg: #ffffff;
+  --jea-surface: #ffffff;
+  --jea-surface-2: #ffffff;
+  --jea-border: #111111;   /* thin, high-contrast borders */
+  --jea-text: #111111;
+  --jea-muted: #4b5563;    /* secondary text */
+  --jea-accent: #111111;   /* use black as accent */
+  --jea-accent-fore: #ffffff;
+  --jea-dash: #111111;     /* selection rectangle */
+  --jea-overlay: rgba(0,0,0,.06); /* subtle fill inside selection */
+  --jea-chip: #ffffff;     /* chips/badges */
+  --jea-badge-bg: #ffffff;
+  --jea-badge-text: #111111;
+  color-scheme: light;
+}
+
+/* Selection overlay */
+#jea-overlay-root { position: fixed; inset:0; pointer-events:none; z-index:2147483647; }
+#jea-selection-rect { position:absolute; border:2px dashed var(--jea-dash); background: var(--jea-overlay); }
+
+/* Modal */
+.jea-modal{
+  position:fixed; top:20px; right:20px; max-width:560px; z-index:2147483647;
+  background:var(--jea-surface); color:var(--jea-text);
+  border-radius:14px; border:1px solid var(--jea-border);
+  box-shadow:none; /* flat white */
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  pointer-events:auto; overflow:hidden;
+}
+.jea-modal header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 16px; background:var(--jea-surface-2);
+  border-bottom:1px solid var(--jea-border);
+}
+.jea-modal header h3{ margin:0; font-size:14px; letter-spacing:.3px; font-weight:600; color:var(--jea-text); }
+.jea-close{ background:none; border:none; color:var(--jea-text); font-weight:700; font-size:16px; cursor:pointer; }
+.jea-modal .jea-body{ padding:14px 16px; }
+
+/* Inputs */
+.jea-modal textarea, .jea-modal input, .jea-modal select{
+  width:100%; border-radius:10px; border:1px solid var(--jea-border);
+  background:var(--jea-bg); color:var(--jea-text); padding:10px 12px; font-size:13px; outline:none; min-height:38px;
+}
+.jea-modal textarea:focus, .jea-modal input:focus, .jea-modal select:focus{
+  border-color:var(--jea-text);
+  box-shadow: 0 0 0 3px rgba(0,0,0,.08);
+}
+
+/* Layout helpers */
+.muted{ color:var(--jea-muted); font-size:12px; }
+.row{ display:flex; gap:10px; margin-top:10px; flex-wrap:wrap; }
+.inline{ display:inline-flex; align-items:center; gap:8px; }
+
+/* Full-width fields with trailing icon */
+.field{ display:grid; grid-template-columns: 1fr auto; align-items:center; gap:8px; width:100%; }
+.icon-btn{
+  appearance:none; border:1px solid var(--jea-border); background:#ffffff; color:var(--jea-text);
+  width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; cursor:pointer;
+}
+.icon-btn:hover{ background:#f5f5f5; }
+.icon-btn:active{ transform: translateY(1px); }
+
+/* Buttons */
+.jea-btn{
+  appearance:none; border:1.5px solid var(--jea-border);
+  border-radius:999px; padding:9px 14px; font-weight:700;
+  background:#ffffff; color:var(--jea-text); cursor:pointer; font-size:12px;
+}
+.jea-btn:hover{ background:#f5f5f5; }
+.jea-btn.secondary{ background:#ffffff; color:var(--jea-text); border:1.5px solid var(--jea-border); }
+.jea-btn.secondary:hover{ background:#f5f5f5; }
+
+/* Chips / badges */
+.jea-chip{ display:inline-flex; align-items:center; gap:6px; background:var(--jea-chip);
+  border-radius:12px; padding:4px 8px; font-size:11px; border:1px solid var(--jea-border); color:var(--jea-text);
+}
+.badge-sent{ background:var(--jea-badge-bg); color:var(--jea-badge-text); font-weight:700; }
+
+/* Toast */
+.jea-toast{
+  position: fixed; right: 24px; bottom: 20px;
+  background:#ffffff; color:var(--jea-text);
+  border:1px solid var(--jea-border); padding:8px 12px; border-radius:10px; font-size:12px;
+  opacity:0; transform: translateY(6px);
+  transition: opacity .18s ease, transform .18s ease;
+}
+.jea-toast.show{ opacity:1; transform: translateY(0); }
