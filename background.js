@@ -1,10 +1,4 @@
 
-// // extention-prodmail-7b2f15128
-// // const API_KEY = "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";
-// // const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
-// const API_KEY = "";
-// const OPENROUTER_URL = "https://openrouter-proxy.gjsanka11.workers.dev/chat";
-// const MODEL = "nvidia/nemotron-nano-12b-v2-vl:free";
 
 // async function callOpenRouter(messages) {
 //   if (!API_KEY || API_KEY.startsWith("PASTE_")) {
@@ -89,7 +83,7 @@ async function callOpenRouter(messages) {
       "HTTP-Referer": "https://example.local/extension",
       "X-Title": "Job Email Autofill (Vision)",
       // must match your Worker secret ALLOWED_APP_ID
-      "X-App-Id": "extention-prodmail-7b2f15128"
+      "X-App-Id": ""
     },
     body: JSON.stringify({ model: MODEL, messages, temperature: 0.2, max_tokens: 600 })
   });
